@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="stylesheet" type="text/css" href="file:///E|/desktop/OneDrive - AIOS/WEB数据管理/Program/WANG_LEANEVENTO/css/sayitright.css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Home</title>
+<style>
+	
+#all{
+		margin:0px auto;
+		width:500px;
+		height: 200px;
+
+	}
+	a{
+		margin: 0px auto;
+	}
+	#myfile{
+		display: none;
+	}
+	#myBtn{
+
+	}
+</style>
+</head>
+
+<body>
+<div id="all">
+<!--   <div><b>ab.jpg</b><img src="{{ url_for('static', filename='ab.jpg') }}"></div>
+<hr>
+ <div><b>dar.jpg</b><img src="{{ url_for('static', filename='dar.jpg') }}"></div>
+<hr>
+ <div><b>dave.jpg</b><img src="{{ url_for('static', filename='dave.jpg') }}"></div>
+<hr>
+ <div><b>jason.jpg</b><img src="{{ url_for('static', filename='jason.jpg') }}"></div>
+<hr>
+ <div><b>jees.jpg</b><img src="{{ url_for('static', filename='jees.jpg') }}"></div>
+<hr> -->
+
+<b>1710 Pengyun,Wang</b>
+
+<b>show person information by point value</b>
+
+
+<form action='/choose' method='get'>
+	
+	plz input the point value<input type="text" name="id">
+	<input type="submit" value="Submit">
+</form>
+<hr />
+<b>show person between room number scope</b>
+<form action='/choose2' method='get'>
+	
+	plz input the start number<input type="text" name="start">
+	<br />
+	plz input the end number <input type="text" name="end">
+	<br />
+	plz input the favorite word <input type="text" name='favor' />
+	<input type="submit" value="Submit">
+</form>
+
+<hr />
+<b>edit name and points and favorite</b>
+<form action='/choose3' method='get'>
+	
+	plz input the point value<input type="text" name="point">
+	<br />
+	plz input the name <input type="text" name='name'/>
+
+	<br />
+	plz input the new name <input type="text" name='nname' />
+	<br />
+
+	plz input the new point <input type="text" name="npoint">
+	<br />
+
+	plz input the new Favorite <input type="text" name="favor">
+	<input type="submit" value="Submit">
+</form>
+
+
+<hr />
+<a style='align-items: center;' href="/pic">Picture</a>
+<hr />
+<form action="" enctype="multipart/form-data" method="POST">
+	<input type="file" id='myfile' name='file' />
+	<!-- <button id='myBtn'>Click to upload</button> -->
+	<label for="myfile">Click here to upload</label>
+	<input type="submit" value='upload' />
+
+</form>
+<hr />
+<!--  <div><b>ab.jpg</b><img src="{{ url_for('static', filename='ab.jpg') }}"></div>
+<hr> -->
+
+
+
+<div id="footer" style="text-align:center;"><b>copyright@2019 All rights reserved|This web is made by Anakin</b></div>
+
+</div>
+</body>
+</html>
