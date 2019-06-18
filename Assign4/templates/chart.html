@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+
+	<title>Document</title>
+	<script src='static/js/echarts-en.min.js'></script>
+	<script src='static/js/macarons.js'></script>
+
+
+	
+</head>
+<body>
+	  <div id="main" style="width: 600px;height:400px;"></div>
+	  <script type="text/javascript">
+	  	var count1={{count}};
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+		
+        // 指定图表的配置项和数据
+         console.log (count1);
+        var option = {
+            title: {
+                text: 'Depth Bar chart'
+            },
+            tooltip: {data:['test']},
+            legend: {
+                data:['depth']
+            },
+
+
+            xAxis: {
+                data: ["1-5","5-10","10-20","20-100","100-1000"]
+            },
+            yAxis: {},
+
+            series: [{
+                name: 'depth',
+                type: 'bar',
+                data:count1
+            }]
+        };
+       
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+
+     <div id="container" style="width: 600px;height:400px;"></div>
+        <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom,'macarons');
+var app = {};
+var count2={{count2|safe}}
+console.log (count2);
+option = null;
+// var data = genData(50);
+
+option = {
+    title : {
+        text: 'Depth earchquake',
+        subtext: '',
+        x:'center'
+    },
+    tooltip : {
+        trigger: 'item',
+        formatter: "{a} <br/>{b} : {c} ({d}%)"
+    },
+    legend: {
+        type: 'scroll',
+        orient: 'vertical',
+        right: 10,
+        top: 20,
+        bottom: 20,
+        data: ["1-5","5-10","10-20","20-100","100-1000"],
+
+        // selected: data.selected
+    },
+    series : [
+        {
+            name: 'Depth',
+            type: 'pie',
+            radius : '55%',
+            center: ['40%', '50%'],
+            selectedMode: 'single',
+            data: count2,
+            itemStyle: {
+                emphasis: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+            }
+        }
+    ]
+};
+
+
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>
+    
+	
+</body>
+</html>

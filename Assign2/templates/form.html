@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/bootstrap.min.css')}}" />
+  <script src="{{url_for('static',filename='js/bootstrap.min.js')}}"></script>
+  <script src="{{url_for('static',filename='js/jquery.form.min.js')}}"></script>
+  <script src="{{url_for('static',filename='js/popper.min.js')}}"></script>	
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Home</title>
+<style>
+	
+	#all{
+		margin: 0 100px;
+
+	}
+</style>
+</head>
+
+<body>
+<div id="all">
+<!--   <div><b>ab.jpg</b><img src="{{ url_for('static', filename='ab.jpg') }}"></div>
+<hr>
+ <div><b>dar.jpg</b><img src="{{ url_for('static', filename='dar.jpg') }}"></div>
+<hr>
+ <div><b>dave.jpg</b><img src="{{ url_for('static', filename='dave.jpg') }}"></div>
+<hr>
+ <div><b>jason.jpg</b><img src="{{ url_for('static', filename='jason.jpg') }}"></div>
+<hr>
+ <div><b>jees.jpg</b><img src="{{ url_for('static', filename='jees.jpg') }}"></div>
+<hr> -->
+
+<div style='margin: 0px 20px;'><b>1710 Pengyun,Wang</b></div>
+<br />
+
+<a href="/choose">Show the earth quakes with a magitude greater than 5.
+</a>
+<hr />
+<b>show earch quake between magnitude scope with specific time interval</b>
+<form action='/choose2' method='get'>
+
+	<div class='row'>
+		<div class='col-md-4'>plz input the start magnitude number<input type="text" class='form-control'name="start"></div>
+	
+   <div class='col-md-4'>	plz input the end magnitude number <input type="text" class='form-control' name="end"></div>
+
+	</div>
+
+
+	<div class='row'>
+	<div class='col-md-4'>plz input the start time <input class='form-control' type="date" min='2019-05-10' max='2019-06-09' name='start_time'/></div>
+	<div class='col-md-4'>plz input the end time <input class='form-control' type="date" min='2019-05-10' max='2019-06-09' name='end_time'/></div>
+	
+<div class='col-md-2'>
+			<input type="submit" class='btn btn-light' value="Submit">
+		</div>
+	</div>
+
+
+	
+	
+</form>
+
+<hr />
+<b>Find earthquakes that were near of a specified location. </b>
+<form action='/choose3' method='get'>
+	<div class='row'>
+		<div class='col-md-3'>
+	plz input the latitude<input class='form-control' type="text" name="latitude">
+	<br /></div>
+	<div class='col-md-3'>
+	plz input the longitude<input class='form-control' type="text" name='longitude'/>
+<br /></div>
+<div class='col-md-3'>
+	plz input the distance <input class='form-control' type="text" name="distance"></div>
+	<div class='col-md-3'><input type="submit" class='btn btn-light' value="Submit"></div>
+
+	</div>
+	
+	
+</form>
+
+
+<hr />
+<form action='/kmean' method='get'>
+	<div class='row'> </div>
+	
+	<div class='row'> 
+		<div class='col-md-4'><b>plz input the scatter point value</b></div>
+<div class='col-md-2'>
+	<input type="text" class='form-control' name="kn"></div>
+	<div class='col-md-1'><input type="submit" class='btn btn-light' value="Submit"></div>
+		
+	</div>
+	
+</form>
+
+<hr />
+<form action='/predict' method='get'>
+	<div class="row">
+		<div class="col-md-4"><b>plz input the mag value</b></div>
+			
+<div class="col-md-2"><input type="text" class='form-control' name="mg"></div>
+<div class="col-md-1">
+	<input type="submit" class='btn btn-light' value="Submit"></div>
+
+
+	</div>
+
+</form>
+
+<hr />
+<!-- <a style='align-items: center;' href="/pic">Picture</a>
+<hr />
+<form action="" enctype="multipart/form-data" method="POST">
+	<input type="file" id='myfile' name='file' />
+	<label for="myfile">Click here to upload</label>
+	<input type="submit" value='upload' />
+
+</form>
+<hr /> -->
+<!--  <div><b>ab.jpg</b><img src="{{ url_for('static', filename='ab.jpg') }}"></div>
+<hr> -->
+
+
+
+<div id="footer" style="text-align:center;"><b>copyright@2019 All rights reserved|This web is made by Anakin</b></div>
+
+</div>
+</body>
+</html>
