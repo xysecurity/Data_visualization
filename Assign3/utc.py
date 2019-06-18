@@ -44,10 +44,25 @@ from timeit import timeit
 import sqlite3
 import time
 import redis
-r=redis.Redis(host='localhost',port=6379,decode_responses=True)
+r=redis.StrictRedis(host='anakin.redis.cache.windows.net',port=6379,password='QuhFzLTrVd+LNdWaF1fAxikpgc6bdfiaimiqk2PJB44=',decode_responses=True)
 r.set('name','test')
 print(r['name'])
 print(r.get('name'))
+db=sqlite3.connect('1.db')
+cu=db.cursor()
+data=cu.execute('select * from all_month')
+data2=[]
+i=0
+for row in data:
+	# data2.append(row)
+	r.set(i,str(row))
+	i+=1
+# r.set(1,str(data2[0]))
+# db.commit()
+# db.close()
+r.set(1,'test')
+print(r.get(1))
+print(r.get(2))
 
 # db=sqlite3.connect('1.db')
 # cu=db.cursor()
@@ -60,8 +75,7 @@ print(r.get('name'))
 # 	i+=1
 # db.commit()
 # db.close()
-print(r.get(1))
-print(r.get(1)[0:10])
+
 
 
 

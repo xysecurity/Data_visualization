@@ -28,7 +28,7 @@ db.close()
 
 
 
-@app.route('/pie')
+@app.route('/')
 def pie():
 	# db=sqlite3.connect('1.db')
 	# cu=db.cursor()
@@ -85,12 +85,6 @@ def searchtable():
 		return render_template('tabletime.html',time2=time2,number=number,time3=time3,number2=number2)
 	else:
 		return render_template('tabletime.html')
-
-
-@app.route('/',methods=['POST','GET'])
-def input():
-	return render_template('form.html')
-	
 
 
 

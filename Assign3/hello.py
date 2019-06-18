@@ -14,7 +14,7 @@ app = Flask(__name__)
 # print(os.getenv("PORT"))
 port = int(os.getenv("PORT", 5000))
 print(port)
-r=redis.Redis(host='localhost',port=6379,decode_responses=True)
+r=redis.Redis(host='anakin.redis.cache.windows.net',port=6379,password='QuhFzLTrVd+LNdWaF1fAxikpgc6bdfiaimiqk2PJB44=',decode_responses=True)
 db=sqlite3.connect('1.db')
 cu=db.cursor()
 data=cu.execute('select * from all_month')
@@ -22,7 +22,6 @@ data2=[]
 i=0
 for row in data:
 	data2.append(row)
-	r.set(i,str(row))
 db.commit()
 db.close()
 
