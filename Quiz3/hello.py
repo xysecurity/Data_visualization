@@ -34,7 +34,7 @@ def choose():
 	# query_number=float(request.args.get('query_num'))
 	db=sqlite3.connect('2.db')
 	cu=db.cursor()
-	data=cu.execute('select * from quake6 where depthError between %d and %d and longitude > %d' %(start_dep,end_dep,lon))
+	data=cu.execute('select * from quake6 where depthError between %.1f and %.1f and longitude > %.1f' %(start_dep,end_dep,lon))
 	list2=[]
 	for row in data:
 		# print(row[4])
@@ -67,7 +67,7 @@ def choose2():
 			big=b
 			small=a
 		start=time.time()
-		data=cu.execute('select count(time) from quake6 where depthError between %d and %d' %(small,big))
+		data=cu.execute('select count(time) from quake6 where depthError between %.1f and %.1f' %(small,big))
 		end=time.time()
 		cost_time=end-start
 		for cot in data:
@@ -101,12 +101,18 @@ def choose3():
 			big=b
 			small=a
 		start=time.time()
-		i=0
-		for i in range(200):
-			# print(r.get('a%d'%i))
-			if float(r.get('a%d'%i))>=small and float(r.get('a%d'%i))<big:
-				print(r.get('a%d'%i))
-				count+=1
+		redis_num=r.get('%.1f-%.1f'%(small,big))
+		# print(r.get('%.1f-%.1f'%(small,big)),small,big)
+
+		if redis_num and redis_num!=0:
+			count=redis_num
+		else:
+			data=cu.execute('select count(time) from quake6 where depthError between %.1f and %.1f' %(small,big))
+			for cot in data:
+				count=cot[0]
+			r.set('%.1f-%.1f'%(small,big),count)
+			print(r.get('%.1f-%.1f'%(small,big)))
+
 		end=time.time()
 		cost_time=end-start
 
@@ -141,7 +147,9 @@ def input():
 				else:
 					big=b
 					small=a
-				data=cu.execute('select count(time) from quake6 where latitude between %d and %d' %(small,big))
+				data=cu.execute('select count(time) from quake6 where latitude between %.1f and %.1f' %(small,big))
+				for cot in data:
+					count=cot[0]
 
 			end=time.time()
 			cost_time=end-start
@@ -159,11 +167,21 @@ def input():
 					small=b
 				else:
 					big=b
-					small=a			
-				for row in data2:
-					if row[9] !=None:	
-						if row[9]>=small and row[9]<big:
-							count+=1
+					small=a	
+				redis_num=r.get('%.1f-%.1f'%(small,big))
+
+				# print(redis_num)
+				# print(small,big)
+
+				if redis_num and redis_num!=0:
+					count=redis_num
+					# print(count,'get')
+				else:
+					data=cu.execute('select count(time) from quake6 where depthError between %.1f and %.1f' %(small,big))
+					for cot in data:
+						count=cot[0]
+					r.set('%.1f-%.1f'%(small,big),count)
+					# print(r.get('%.1f-%.1f'%(small,big)))
 			end=time.time()
 			cost_time=end-start
 		return render_template('form.html',cost_time=cost_time)

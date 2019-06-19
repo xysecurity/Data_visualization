@@ -49,12 +49,16 @@ db=sqlite3.connect('2.db')
 cu=db.cursor()
 data=cu.execute('select * from quake6')
 i=0
+r.set('1-2',300)
+
 # for row in data:
 # 	r.set('a%d'%i,row[9])
 # 	i+=1
 # 	print(row[9])
-print(r.get('a2'))
-for i in range(10761):
-	if r.get('a%d'%i)!=None:
-		print(r.get('a%d'%i))
+print(r.get('5.0-9.4'))
+small=5.0
+big=9.4
+print(r.get('%.1f-%.1f'%(small,big)),small,big)
+print('%.1f-%.1f'%(small,big))
+
 
