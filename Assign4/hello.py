@@ -7,7 +7,6 @@ from flask import render_template
 from flask import request
 import sqlite3
 from timeit import timeit
-import redis
 import json
 app = Flask(__name__)
 
