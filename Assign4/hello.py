@@ -7,7 +7,6 @@ from flask import render_template
 from flask import request
 import sqlite3
 from timeit import timeit
-# import redis
 import json
 app = Flask(__name__)
 
@@ -28,23 +27,31 @@ db.close()
 
 
 
-@app.route('/')
+@app.route('/pie')
 def pie():
 	# db=sqlite3.connect('1.db')
 	# cu=db.cursor()
 	# data=cu.execute('select * from all_month')
 	list=[]
+	list2=[]
 	count=[[1,5,0],[5,10,0],[10,20,0],[20,100,0],[100,1000,0]]
 	for row in data2:
 		# print(row[4])
-		if row[3]==None:
+		list2.append([row[1],row[2]])
+		if row[3]==None or row[4]==None:
 			pass
 		else:
 			for i in range(len(count)):
 				if float(row[3])>=count[i][0] and float(row[3])<count[i][1]:
 					# print(float(row[4]))
 					count[i][2]+=1
-					list.append(row)
+					# list.append(row)
+			if float(row[4])>=4:
+				list.append({"zoomLevel":5,
+  "scale": 0.5,
+  "title": "EarchQuake",
+  "latitude": row[1],
+  "longitude": row[2]})
 	count1=[]
 	count2=[]
 	for i in count:
@@ -52,11 +59,12 @@ def pie():
 	# print(count1)
 	for i in range(len(count)):
 		count2.append({'name':str(count[i][0])+'-'+str(count[i][1]),'value':count[i][2]})
+	# print(list)
 
 
 
 
-	return render_template('chart.html',data=list,count=json.dumps(count1),count2=json.dumps(count2))
+	return render_template('chart.html',locationdata=json.dumps(list),count=json.dumps(count1),count2=json.dumps(count2),scatter=json.dumps(list2))
 
 
 
@@ -85,6 +93,12 @@ def searchtable():
 		return render_template('tabletime.html',time2=time2,number=number,time3=time3,number2=number2)
 	else:
 		return render_template('tabletime.html')
+
+
+@app.route('/',methods=['POST','GET'])
+def input():
+	return render_template('form.html')
+	
 
 
 
