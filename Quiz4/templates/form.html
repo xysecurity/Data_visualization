@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/bootstrap.min.css')}}" />
+  <script src="{{url_for('static',filename='js/bootstrap.min.js')}}"></script>
+  <script src="{{url_for('static',filename='js/jquery.form.min.js')}}"></script>
+  <script src="{{url_for('static',filename='js/popper.min.js')}}"></script>	
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Home</title>
+<style>
+	
+	#all{
+		margin: 0 100px;
+
+	}
+</style>
+</head>
+
+<body>
+<div id="all">
+<!--   <div><b>ab.jpg</b><img src="{{ url_for('static', filename='ab.jpg') }}"></div>
+<hr>
+ <div><b>dar.jpg</b><img src="{{ url_for('static', filename='dar.jpg') }}"></div>
+<hr>
+ <div><b>dave.jpg</b><img src="{{ url_for('static', filename='dave.jpg') }}"></div>
+<hr>
+ <div><b>jason.jpg</b><img src="{{ url_for('static', filename='jason.jpg') }}"></div>
+<hr>
+ <div><b>jees.jpg</b><img src="{{ url_for('static', filename='jees.jpg') }}"></div>
+<hr> -->
+
+<div style='margin: 0px 20px;'><b>1710 Pengyun,Wang</b></div>
+<br />
+
+
+
+<hr />
+<a style='align-items: center;' href="/pop">See between 2-8 million and 8-40 million</a>
+<hr />
+<form action="/pie">
+<b>Plz input incre</b>
+	<input type="text" name='incre'/>
+	<input type="submit" />
+
+</form>
+<hr />
+
+<form action="/scatter">
+<b>Plz input Population start and end</b>
+<input type="text" name='pop_start'/>
+	<input type="text" name='pop_end'/>
+	<input type="submit" />
+
+</form>
+<hr />
+<form action="/bar">
+<b>Plz input formula number</b>
+	<input type="text" name='for_num'/>
+	<input type="submit" />
+
+</form>
+<hr />
+<!--  <div><b>ab.jpg</b><img src="{{ url_for('static', filename='ab.jpg') }}"></div>
+<hr> -->
+
+</div>
+
+<div id="footer" style="text-align:center;"><b>copyright@2019 All rights reserved|This web is made by Anakin</b></div>
+
+</div>
+</body>
+</html>

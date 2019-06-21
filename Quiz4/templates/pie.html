@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Picture</title>
+	<script src='static/js/echarts-en.min.js'></script>
+	<script src='static/js/macarons.js'></script>
+<style>
+	
+#pie{
+		margin: 10px 5%;
+		width:1000px;
+		height: 800px;
+
+
+	}
+	a{
+		margin: 0px auto;
+	}
+</style>
+</head>
+
+<body>
+
+
+     <div id="pie"></div>
+        <script type="text/javascript">
+var dom = document.getElementById("pie");
+var myChart = echarts.init(dom,'macarons');
+var app = {};
+var names={{names|safe}}
+var count={{count|safe}}
+
+
+console.log (count);
+option = null;
+// var data = genData(50);
+
+option = {
+    title : {
+        text: 'Depth earchquake',
+        subtext: '',
+        x:'center'
+    },
+    tooltip : {
+        trigger: 'item',
+        formatter: "{a} <br/>{b} : {c} ({d}%)"
+    },
+    legend: {
+        type: 'scroll',
+        orient: 'vertical',
+        right: 10,
+        top: 20,
+        bottom: 20,
+        data: names,
+
+        // selected: data.selected
+    },
+    series : [
+        {
+            name: 'Depth',
+            type: 'pie',
+            radius : '55%',
+            center: ['40%', '50%'],
+            selectedMode: 'single',
+            data: count,
+            itemStyle: {
+                emphasis: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+            }
+        }
+    ]
+};
+
+
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>
+
+
+
+<hr />
+
+
+
+
+
+
+<div id="footer" style="text-align:center;"><b>copyright@2019 All rights reserved|This web is made by Anakin</b></div>
+
+</div>
+</body>
+</html>

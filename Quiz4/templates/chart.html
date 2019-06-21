@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+
+	<title>Document</title>
+    <style>
+    
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+#map {
+  width: 90%;
+  height: 400px;
+  overflow:hidden;
+}
+
+.map-marker {
+    /* adjusting for the marker dimensions
+    so that it is centered on coordinates */
+    margin-left: -8px;
+    margin-top: -8px;
+}
+.map-marker.map-clickable {
+    cursor: pointer;
+}
+.pulse {
+    width: 10px;
+    height: 10px;
+    border: 5px solid #f7f14c;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    background-color: #716f42;
+    z-index: 10;
+    position: absolute;
+  }
+.map-marker .dot {
+    border: 10px solid #fff601;
+    background: transparent;
+    -webkit-border-radius: 60px;
+    -moz-border-radius: 60px;
+    border-radius: 60px;
+    height: 50px;
+    width: 50px;
+    -webkit-animation: pulse 3s ease-out;
+    -moz-animation: pulse 3s ease-out;
+    animation: pulse 3s ease-out;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    z-index: 1;
+    opacity: 0;
+  }
+  @-moz-keyframes pulse {
+   0% {
+      -moz-transform: scale(0);
+      opacity: 0.0;
+   }
+   25% {
+      -moz-transform: scale(0);
+      opacity: 0.1;
+   }
+   50% {
+      -moz-transform: scale(0.1);
+      opacity: 0.3;
+   }
+   75% {
+      -moz-transform: scale(0.5);
+      opacity: 0.5;
+   }
+   100% {
+      -moz-transform: scale(1);
+      opacity: 0.0;
+   }
+  }
+  @-webkit-keyframes "pulse" {
+   0% {
+      -webkit-transform: scale(0);
+      opacity: 0.0;
+   }
+   25% {
+      -webkit-transform: scale(0);
+      opacity: 0.1;
+   }
+   50% {
+      -webkit-transform: scale(0.1);
+      opacity: 0.3;
+   }
+   75% {
+      -webkit-transform: scale(0.5);
+      opacity: 0.5;
+   }
+   100% {
+      -webkit-transform: scale(1);
+      opacity: 0.0;
+   }
+  }
+</style>
+
+<script src="https://www.amcharts.com/lib/4/core.js"></script>
+<script src="https://www.amcharts.com/lib/4/maps.js"></script>
+<script src="https://www.amcharts.com/lib/4/geodata/worldLow.js"></script>
+<script src="https://www.amcharts.com/lib/4/themes/frozen.js"></script>
+<script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+	<script src='static/js/echarts-en.min.js'></script>
+	<script src='static/js/macarons.js'></script>
+   
+
+	
+</head>
+<body>
+	  <div id="histo" style="width: 600px;height:400px;"></div>
+	  <script type="text/javascript">
+	  	var count1={{count}};
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('histo'));
+		
+        // 指定图表的配置项和数据
+         console.log (count1);
+        var option = {
+            title: {
+                text: 'Depth Bar chart'
+            },
+            tooltip: {data:['test']},
+            legend: {
+                data:['depth']
+            },
+
+
+            xAxis: {
+                data: ["1-5","5-10","10-20","20-100","100-1000"]
+            },
+            yAxis: {},
+
+            series: [{
+                name: 'depth',
+                type: 'bar',
+                data:count1
+            }]
+        };
+       
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+
+     <div id="pie" style="width: 600px;height:400px;"></div>
+        <script type="text/javascript">
+var dom = document.getElementById("pie");
+var myChart = echarts.init(dom,'macarons');
+var app = {};
+var count2={{count2|safe}}
+console.log (count2);
+option = null;
+// var data = genData(50);
+
+option = {
+    title : {
+        text: 'Depth earchquake',
+        subtext: '',
+        x:'center'
+    },
+    tooltip : {
+        trigger: 'item',
+        formatter: "{a} <br/>{b} : {c} ({d}%)"
+    },
+    legend: {
+        type: 'scroll',
+        orient: 'vertical',
+        right: 10,
+        top: 20,
+        bottom: 20,
+        data: ["1-5","5-10","10-20","20-100","100-1000"],
+
+        // selected: data.selected
+    },
+    series : [
+        {
+            name: 'Depth',
+            type: 'pie',
+            radius : '55%',
+            center: ['40%', '50%'],
+            selectedMode: 'single',
+            data: count2,
+            itemStyle: {
+                emphasis: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+            }
+        }
+    ]
+};
+
+
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>
+
+<div id="scatter" style="width: 1000px;height: 800px"></div>
+
+
+
+  <script type="text/javascript">
+var dom = document.getElementById("scatter");
+var myChart = echarts.init(dom);
+var app = {};
+var data=
+option = null;
+option = {
+      title : {
+        text: 'Earchquake scatter',
+        subtext: '',
+        x:'center'
+    },
+
+    legend: {
+        type: 'scroll',
+        orient: 'vertical',
+        right: 10,
+        top: 20,
+        bottom: 20,
+        data:['earchquake','predict']
+
+
+        // selected: data.selected
+    },
+    xAxis: {
+        scale: true
+    },
+    yAxis: {
+        scale: true
+    },
+    series: [{
+        name:'predict',
+        type: 'effectScatter',
+        symbolSize: 20,
+        data: [
+            [0, 0],
+            [0, -100]
+        ]
+    }, {name:'earchquake',
+        type: 'scatter',
+        data: {{scatter}}
+    }]}
+;
+
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>
+
+
+
+
+
+<div id="map"></div>
+<script>
+    
+/**
+ * ---------------------------------------
+ * This demo was created using amCharts 4.
+ * 
+ * For more information visit:
+ * https://www.amcharts.com/
+ * 
+ * Documentation is available at:
+ * https://www.amcharts.com/docs/v4/
+ * ---------------------------------------
+ */
+
+// Themes begin
+am4core.useTheme(am4themes_frozen);
+am4core.useTheme(am4themes_animated);
+// Themes end
+
+// Create map instance
+var chart = am4core.create("map", am4maps.MapChart);
+
+// Set map definition
+chart.geodata = am4geodata_worldLow;
+
+// Set projection
+chart.projection = new am4maps.projections.Miller();
+
+// Create map polygon series
+var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
+
+// Exclude Antartica
+polygonSeries.exclude = ["AQ"];
+
+// Make map load polygon (like country names) data from GeoJSON
+polygonSeries.useGeodata = true;
+
+// Configure series
+var polygonTemplate = polygonSeries.mapPolygons.template;
+polygonTemplate.tooltipText = "{name}";
+polygonTemplate.fill = chart.colors.getIndex(0).lighten(0.5);
+
+// Create hover state and set alternative fill color
+var hs = polygonTemplate.states.create("hover");
+hs.properties.fill = chart.colors.getIndex(0);
+
+// Add image series
+var imageSeries = chart.series.push(new am4maps.MapImageSeries());
+imageSeries.mapImages.template.propertyFields.longitude = "longitude";
+imageSeries.mapImages.template.propertyFields.latitude = "latitude";
+var data={{locationdata|safe}};
+console.log(data);
+
+imageSeries.data=data;
+// imageSeries.data = [ {
+//   "zoomLevel": 10,
+//   "scale": 1.0,
+//   "title": "Brussels",
+//   "latitude": 10.8371,
+//   "longitude": 4.3676
+// }, {
+//   "zoomLevel": 5,
+//   "scale": 0.5,
+//   "title": "Copenhagen",
+//   "latitude": 55.6763,
+//   "longitude": 12.5681
+// },{
+//   "zoomLevel": 10,
+//   "scale": 1.0,
+//   "title": "Tokyo",
+//   "latitude": 35.6785,
+//   "longitude": 139.6823,
+//   "url": "http://www.google.co.jp"
+// } ];
+
+// add events to recalculate map position when the map is moved or zoomed
+chart.events.on( "mappositionchanged", updateCustomMarkers );
+
+// this function will take current images on the map and create HTML elements for them
+function updateCustomMarkers( event ) {
+  
+  // go through all of the images
+  imageSeries.mapImages.each(function(image) {
+    // check if it has corresponding HTML element
+    if (!image.dummyData || !image.dummyData.externalElement) {
+      // create onex
+      image.dummyData = {
+        externalElement: createCustomMarker(image)
+      };
+    }
+
+    // reposition the element accoridng to coordinates
+    var xy = chart.geoPointToSVG( { longitude: image.longitude, latitude: image.latitude } );
+    image.dummyData.externalElement.style.top = xy.y + 'px';
+    image.dummyData.externalElement.style.left = xy.x + 'px';
+  });
+
+}
+
+// this function creates and returns a new marker element
+function createCustomMarker( image ) {
+  
+  var chart = image.dataItem.component.chart;
+
+  // create holder
+  var holder = document.createElement( 'div' );
+  holder.className = 'map-marker';
+  holder.title = image.dataItem.dataContext.title;
+  holder.style.position = 'absolute';
+
+  // maybe add a link to it?
+  if ( undefined != image.url ) {
+    holder.onclick = function() {
+      window.location.href = image.url;
+    };
+    holder.className += ' map-clickable';
+  }
+
+  // create dot
+  var dot = document.createElement( 'div' );
+  dot.className = 'dot';
+  holder.appendChild( dot );
+
+  // create pulse
+  var pulse = document.createElement( 'div' );
+  pulse.className = 'pulse';
+  holder.appendChild( pulse );
+
+  // append the marker to the map container
+  chart.svgContainer.htmlElement.appendChild( holder );
+
+  return holder;
+}
+
+</script>
+    
+	
+</body>
+</html>
