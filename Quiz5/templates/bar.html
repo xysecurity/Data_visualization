@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Picture</title>
+	<script src='static/js/echarts-en.min.js'></script>
+	<script src='static/js/macarons.js'></script>
+<style>
+	
+#histo{
+		margin: 5px auto;
+
+
+	}
+
+
+</style>
+</head>
+
+<body>
+
+
+ <div id="histo" style="width: 80%;height: 800px"></div>
+      <script type="text/javascript">
+        var names={{center}};
+        var values={{list_len}}
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('histo'));
+        
+        // 指定图表的配置项和数据
+         console.log (names);
+        var option = {
+            title: {
+                text: 'Count'
+            },
+            tooltip: {data:['test']},
+            legend: {
+                data:['count']
+            },
+
+
+            xAxis: {
+                name:'number appear',
+                data: names
+            },
+            yAxis: {
+                name:'count'
+            },
+
+            series: [{
+                name: 'count',
+                type: 'bar',
+                data:values
+            }]
+        };
+       
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+
+
+<hr />
+
+
+
+
+
+
+<div id="footer" style="text-align:center;"><b>copyright@2019 All rights reserved|This web is made by Anakin</b></div>
+
+</div>
+</body>
+</html>

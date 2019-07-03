@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/bootstrap.min.css')}}" />
+  <script src="{{url_for('static',filename='js/bootstrap.min.js')}}"></script>
+  <script src="{{url_for('static',filename='js/jquery.form.min.js')}}"></script>
+  <script src="{{url_for('static',filename='js/popper.min.js')}}"></script>	
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Home</title>
+<style>
+	
+	#all{
+		margin: 0 10%;
+		align-items: center;
+		text-align: center;
+
+	}
+</style>
+</head>
+
+<body>
+<div id="all">
+
+
+<div style='margin: 0px 20px;'><b>1710 Pengyun,Wang</b></div>
+
+<hr />
+<b>show chart</b>
+<form action='/database2' method='get'>
+
+	<div class='row'>
+		<div class='col-md-6'>plz input the cluster number<input type="text" class='form-control'name="bn"></div>
+
+	
+<div class='col-md-6'>
+			<input type="submit" class='btn btn-light' value="Submit">
+		</div>
+	</div>
+
+
+	
+	
+</form>
+
+<hr />
+<b>Show center list </b>
+<form action='/database' method='get'>
+	<div class='row'>
+		<div class='col-md-6'>
+	plz input the cluster number<input class='form-control' type="text" name="bn">
+	<br /></div>
+	<div class='col-md-6'><input type="submit" class='btn btn-light' value="Submit"></div>
+
+	</div>
+	
+	
+</form>
+
+
+<hr />
+<!-- <form action='/kmean' method='get'>
+	<div class='row'> </div>
+	
+	<div class='row'> 
+		<div class='col-md-4'><b>plz input the scatter point value</b></div>
+<div class='col-md-2'>
+	<input type="text" class='form-control' name="kn"></div>
+	<div class='col-md-1'><input type="submit" class='btn btn-light' value="Submit"></div>
+		
+	</div>
+	
+</form>
+
+<hr />
+<form action='/predict' method='get'>
+	<div class="row">
+		<div class="col-md-4"><b>plz input the mag value</b></div>
+			
+<div class="col-md-2"><input type="text" class='form-control' name="mg"></div>
+<div class="col-md-1">
+	<input type="submit" class='btn btn-light' value="Submit"></div>
+
+
+	</div>
+
+</form>
+
+<hr /> -->
+<!-- <a style='align-items: center;' href="/pic">Picture</a>
+<hr />
+<form action="" enctype="multipart/form-data" method="POST">
+	<input type="file" id='myfile' name='file' />
+	<label for="myfile">Click here to upload</label>
+	<input type="submit" value='upload' />
+
+</form>
+<hr /> -->
+<!--  <div><b>ab.jpg</b><img src="{{ url_for('static', filename='ab.jpg') }}"></div>
+<hr> -->
+
+
+
+<div id="footer" style="text-align:center;"><b>copyright@2019 All rights reserved|This web is made by Anakin</b></div>
+
+</div>
+</body>
+</html>

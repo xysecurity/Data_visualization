@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/bootstrap.min.css')}}" />
+  <script src="{{url_for('static',filename='js/bootstrap.min.js')}}"></script>
+  <script src="{{url_for('static',filename='js/jquery.form.min.js')}}"></script>
+  <script src="{{url_for('static',filename='js/popper.min.js')}}"></script>	
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Home</title>
+<style>
+	
+	#all{
+		margin: 0 10%;
+		align-items: center;
+		text-align: center;
+
+	}
+</style>
+</head>
+
+<body>
+<div id="all">
+
+
+<div style='margin: 0px 20px;'><b>1749  Yu,Miao</b></div>
+
+<hr />
+<a href="/database"> Question 5</a>
+<hr />
+
+<b>Question 6</b>
+<form action='/database2' method='get'>
+
+	<div class='row'>
+		<div class='col-md-4'>plz input the cluster number<input type="text" class='form-control'name="bn"></div>
+</div>
+<div class='row'>
+<div class='col-md-10'>
+		<select name='choice1'>
+  <option value="0">CabinNum</option>
+  <option value="8">Lat</option>
+  <option value="3">Age</option>
+  <option value="6">Wealth</option>
+  <option value="5">Education</option>
+  <option value="10">fare</option>
+
+</select>
+<b>range start</b><input type="text" name='v1_start'/>
+<b>range end</b><input type="text" name='v1_end' />
+</div>
+</div>
+
+<div class='row'>
+<div class='col-md-10'>
+<select name='choice2'>
+  <option value="0">CabinNum</option>
+  <option value="8">Lat</option>
+  <option value="3">Age</option>
+  <option value="6">Wealth</option>
+  <option value="5">Education</option>
+  <option value="10">fare</option>
+
+
+</select>
+<b>range start</b><input type="text" name='v2_start'/>
+<b>range end</b><input type="text" name='v2_end' />
+</div>
+</div>
+
+<b>Question 7</b>
+
+	<div class='row'>
+		<div class='col-md-4'>plz input the centroid locatIion
+		</div>
+	</div>
+<div class='row'>
+<div class='col-md-3'>
+<b>x-axis</b><input type="text" class='form-control'name="x">
+</div>
+
+<div class='col-md-3'>
+<b>y-axis</b><input type="text" class='form-control'name="y">
+</div>
+</div>
+	
+<div class='col-md-2'>
+			<input type="submit" class='btn btn-light' value="Submit">
+		</div>
+
+
+
+	
+	
+</form>
+
+<hr />
+<b>Question 8</b>
+
+
+<form action='/chart' method='get'>
+
+	<div class='row'>
+		<div class='col-md-4'>plz input the cluster number<input type="text" class='form-control'name="bn"></div>
+	</div>
+
+<div class='row'>
+<div class='col-md-10'>
+		<select name='choice1'>
+  <option value="0">CabinNum</option>
+  <option value="8">Lat</option>
+  <option value="3">Age</option>
+  <option value="6">Wealth</option>
+  <option value="5">Education</option>
+  <option value="10">fare</option>
+
+</select>
+<b>range start</b><input type="text" name='v1_start'/>
+<b>range end</b><input type="text" name='v1_end' />
+</div>
+</div>
+
+<div class='row'>
+<div class='col-md-10'>
+<select name='choice2'>
+  <option value="0">CabinNum</option>
+  <option value="8">Lat</option>
+  <option value="3">Age</option>
+  <option value="6">Wealth</option>
+  <option value="5">Education</option>
+  <option value="10">fare</option>
+
+
+</select>
+<b>range start</b><input type="text" name='v2_start'/>
+<b>range end</b><input type="text" name='v2_end' />
+</div>
+</div>
+	<div class='row'>
+<div class='col-md-2'>
+			<input type="submit" class='btn btn-light' value="Submit">
+		</div>
+	</div>
+
+
+	
+	
+</form>
+
+
+
+
+
+
+<br />
+
+<hr />
+<!-- <form action='/kmean' method='get'>
+	<div class='row'> </div>
+	
+	<div class='row'> 
+		<div class='col-md-4'><b>plz input the scatter point value</b></div>
+<div class='col-md-2'>
+	<input type="text" class='form-control' name="kn"></div>
+	<div class='col-md-1'><input type="submit" class='btn btn-light' value="Submit"></div>
+		
+	</div>
+	
+</form>
+
+<hr />
+<form action='/predict' method='get'>
+	<div class="row">
+		<div class="col-md-4"><b>plz input the mag value</b></div>
+			
+<div class="col-md-2"><input type="text" class='form-control' name="mg"></div>
+<div class="col-md-1">
+	<input type="submit" class='btn btn-light' value="Submit"></div>
+
+
+	</div>
+
+</form>
+
+<hr /> -->
+<!-- <a style='align-items: center;' href="/pic">Picture</a>
+<hr />
+<form action="" enctype="multipart/form-data" method="POST">
+	<input type="file" id='myfile' name='file' />
+	<label for="myfile">Click here to upload</label>
+	<input type="submit" value='upload' />
+
+</form>
+<hr /> -->
+<!--  <div><b>ab.jpg</b><img src="{{ url_for('static', filename='ab.jpg') }}"></div>
+<hr> -->
+
+
+
+<div id="footer" style="text-align:center;"><b>copyright@2019 All rights reserved|This web is made by Anakin</b></div>
+
+</div>
+</body>
+</html>

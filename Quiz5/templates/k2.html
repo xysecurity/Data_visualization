@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ShowInfo</title>
+<style>
+	
+#all{
+		margin:0px auto;
+
+	}
+	a{
+		margin: 0px auto;
+	}
+</style>
+</head>
+
+<body>
+	
+
+<div class="body" style="text-align: center; align-items: center;align-content: center;">
+	<b>1749 Miao,Yu</b>
+<hr />
+
+<table cellspacing="10">
+	<tr>
+		<td>x-axis</td>
+		<td>y-axis</td>
+		<td>number</td>
+		<td>max-distance</td>
+
+	</tr>
+
+		{% for i in range(c) %}
+<tr>
+	<td>
+		{{center[i][0]}}
+	</td>
+	<td>
+		{{center[i][1]}}
+	</td>
+
+	<td>
+		
+		{{list_len[i]}}
+	</td>
+	<td>
+		
+		{{distance[i]}}
+	</td>
+
+</tr>
+	{% endfor %}
+
+</table>
+
+
+<hr />
+
+{% if user_data %}
+
+<table cellspacing="10">
+
+	<tr>
+		<td>Name</td>
+		<td>Age</td>
+		<td>Wealth</td>
+		<td>Cabin</td>
+		<td>Survival</td>
+
+	</tr>
+
+		{% for i in user_data %}
+<tr>
+	<td>
+		{{i[1]}} {{i[2]}}
+	</td>
+	<td>
+		{{i[3]}}
+	</td>
+
+	<td>
+		
+		{{i[6]}}
+	</td>
+	<td>
+		
+		{{i[0]}}
+	</td>
+	<td>
+		
+		{{i[7]}}
+	</td>
+
+</tr>
+	{% endfor %}
+
+	
+
+
+</table>
+{% endif %}
+	
+
+
+</div>
+
+<hr />
+<div id="footer" style="text-align:center;"><b>copyright@2019 All rights reserved|This web is made by Anakin</b></div>
+
+</div>
+</body>
+</html>

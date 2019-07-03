@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Picture</title>
+	<script src='static/js/echarts-en.min.js'></script>
+	<script src='static/js/macarons.js'></script>
+<style>
+	
+#pie{
+		margin: 10px 5%;
+		width:1000px;
+		height: 800px;
+
+
+	}
+	a{
+		margin: 0px auto;
+	}
+</style>
+</head>
+
+<body>
+
+
+<div id="scatter" style="width: 1000px;height: 800px"></div>
+
+
+
+  <script type="text/javascript">
+var dom = document.getElementById("scatter");
+var myChart = echarts.init(dom,'light');
+var app = {};
+var seri=[]
+var data={{data|safe}}
+var data2={{data2|safe}}
+console.log(data.length);
+for (i=0;i< data.length-1;i++){
+
+    seri.push( {name:'pop and regis'+i,
+        type: 'scatter',
+        data: data[i],
+    });
+}
+seri.push(
+{name:'center'+i,
+        type: 'scatter',
+        data: data[10],
+        color:' #DC143C'
+
+    });
+
+console.log(seri)
+option = null;
+option = {
+      title : {
+        text: 'Population and registe number',
+        subtext: '',
+        x:'center'
+    },
+    color:[ '#fec42c', '#80F1BE','#8A2BE2','#8B4513','#A52A2A','#32CD32','#A9A9A9','#696969','  #00CED1','#FFA500'],
+
+    legend: {
+        type: 'scroll',
+        orient: 'vertical',
+        right: 10,
+        top: 20,
+        bottom: 20,
+        data:['pop and regis']
+
+
+        // selected: data.selected
+    },
+    xAxis: {
+        scale: true,
+        name:'Total Population'
+    },
+    yAxis: {
+        scale: true,
+        name:'registered'
+    },
+    series: seri,
+
+}
+;
+
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>
+
+
+
+
+<hr />
+
+
+
+
+
+
+<div id="footer" style="text-align:center;"><b>copyright@2019 All rights reserved|This web is made by Anakin</b></div>
+
+</div>
+</body>
+</html>
