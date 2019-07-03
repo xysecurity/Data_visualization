@@ -8,6 +8,7 @@
 	<script src='static/js/macarons.js'></script>
 <style>
 	
+
 #histo{
 		margin: 5px auto;
 
@@ -15,13 +16,28 @@
 	}
 
 
+
+#pie{
+		margin: 10px 5%;
+		width:1000px;
+		height: 800px;
+
+
+	}
+	a{
+		margin: 0px auto;
+	}
+
 </style>
 </head>
 
 <body>
 
 
+
  <div id="histo" style="width: 80%;height: 800px"></div>
+
+
       <script type="text/javascript">
         var names={{names}};
         var values={{values}}
@@ -41,12 +57,15 @@
 
 
             xAxis: {
+
                 name:'number appear',
                 data: names
             },
             yAxis: {
-                name:'count'
+                name:'count',
+                data: names
             },
+
 
             series: [{
                 name: 'count',
